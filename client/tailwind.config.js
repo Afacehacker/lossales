@@ -9,18 +9,20 @@ export default {
         extend: {
             colors: {
                 primary: {
-                    light: '#60a5fa',
-                    DEFAULT: '#3b82f6',
-                    dark: '#2563eb',
+                    light: '#f472b6', // pink-400
+                    DEFAULT: '#db2777', // pink-600
+                    dark: '#be185d', // pink-700
+                    deep: '#831843', // pink-900
                 },
                 secondary: '#ffffff',
                 accent: {
-                    neon: '#67e8f9',
-                    glow: '#00bcd4',
+                    neon: '#ec4899',
+                    glow: '#f472b6',
+                    rose: '#e11d48',
                 },
                 dark: {
-                    bg: '#0f172a',
-                    card: '#1e293b',
+                    bg: '#4c0519',
+                    card: '#831843',
                 }
             },
             animation: {

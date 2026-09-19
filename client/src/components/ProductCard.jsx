@@ -56,35 +56,35 @@ const ProductCard = ({ account }) => {
     return (
         <div 
             onClick={() => navigate(`/shop/${account._id}`)}
-            className="bg-white rounded-[1.5rem] p-4 flex gap-4 items-center shadow-sm border border-gray-100 hover:shadow-md transition-shadow cursor-pointer w-full mb-4"
+            className="bg-white rounded-[1.5rem] p-4 flex gap-4 items-center shadow-sm border border-pink-100/80 hover:border-pink-300 hover:shadow-xl hover:shadow-pink-500/10 transition-all duration-300 cursor-pointer w-full mb-3 group"
         >
             {/* Left Icon */}
-            <div className="shrink-0 flex items-center justify-center">
+            <div className="shrink-0 flex items-center justify-center transform group-hover:scale-105 transition-transform">
                 {getPlatformIcon(account.platform)}
             </div>
 
             {/* Middle Content */}
             <div className="flex-grow flex flex-col justify-center min-w-0 pr-2">
-                <h3 className="text-gray-800 font-medium text-[15px] leading-snug mb-2 line-clamp-2">
+                <h3 className="text-pink-950 font-bold text-[15px] leading-snug mb-2 line-clamp-2 group-hover:text-pink-600 transition-colors">
                     {account.title}
                 </h3>
                 
-                <div className="flex items-center gap-2 mt-auto">
-                    <span className="bg-[#1f2228] text-white text-xs font-semibold px-3 py-1 rounded-[6px] tracking-wide whitespace-nowrap">
+                <div className="flex items-center gap-2 mt-auto flex-wrap">
+                    <span className="bg-gradient-to-r from-pink-600 via-rose-600 to-pink-700 text-white text-xs font-black px-3 py-1 rounded-[8px] tracking-wide whitespace-nowrap shadow-xs">
                         {formatCurrency(account.price)}
                     </span>
-                    <span className="text-gray-300">|</span>
-                    <span className="bg-[#1f2228] text-white text-xs font-semibold px-3 py-1 rounded-[6px] tracking-wide whitespace-nowrap">
-                        {account.stock} Pcs
+                    <span className="text-pink-200 font-bold">|</span>
+                    <span className="bg-pink-50 text-pink-700 border border-pink-200 text-xs font-bold px-3 py-1 rounded-[8px] tracking-wide whitespace-nowrap">
+                        {account.stock} Pcs Available
                     </span>
                 </div>
             </div>
 
             {/* Right Action */}
             <div className="shrink-0 pl-2">
-                <button className="text-primary hover:bg-primary/10 transition-colors p-2 rounded-xl flex items-center justify-center">
-                    <ShoppingBag size={24} strokeWidth={2.5} className="fill-primary text-white text-shadow-sm" />
-                </button>
+                <div className="w-10 h-10 rounded-2xl bg-gradient-to-r from-pink-600 to-rose-600 text-white flex items-center justify-center shadow-md shadow-pink-500/25 group-hover:scale-110 transition-transform">
+                    <ShoppingBag size={20} strokeWidth={2.5} />
+                </div>
             </div>
         </div>
     );

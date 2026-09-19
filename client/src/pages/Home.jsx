@@ -107,73 +107,71 @@ const Home = () => {
     }, [accounts]);
 
     return (
-        <div className="bg-[#f8fafc] min-h-screen text-gray-900 pb-32">
+        <div className="bg-[#fdf2f8] min-h-screen text-gray-900 pb-32">
             <WelcomePopup />
             
             {/* Header Content */}
             <div className="px-5 pt-8 max-w-lg mx-auto">
-                <h1 className="text-xl font-bold uppercase tracking-tight text-[#4f0c86]">
-                    <span className="text-blue-700">HI </span>
+                <h1 className="text-xl font-black uppercase tracking-tight text-pink-900">
+                    <span className="text-pink-600">HI </span>
                     {user ? user.name : 'GUEST'},
                 </h1>
 
                 {/* Categories Dropdown Filter */}
                 <div className="mt-3 relative">
-                    <select className="w-full bg-[#1b2331] text-white text-[15px] rounded-[12px] px-4 py-4 appearance-none outline-none font-medium cursor-pointer">
+                    <select className="w-full bg-gradient-to-r from-pink-900 via-pink-800 to-rose-900 text-white text-[15px] rounded-[14px] px-4 py-4 appearance-none outline-none font-bold cursor-pointer shadow-md shadow-pink-900/20">
                         <option>Categories</option>
                         {Object.keys(groupedAccounts).map((cat, i) => (
                             <option key={i} value={cat}>{cat}</option>
                         ))}
                     </select>
-                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                    <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-pink-200">
                         <ChevronDown size={20} />
                     </div>
                 </div>
 
                 {/* Recent Order Status */}
                 <div className="mt-6 mb-4">
-                    <div className="bg-[#596168] rounded-[10px] text-center py-3 text-white font-bold tracking-widest text-sm shadow-sm">
-                        RECENT ORDER
+                    <div className="bg-gradient-to-r from-pink-600 via-rose-600 to-pink-700 rounded-[12px] text-center py-3 text-white font-extrabold tracking-widest text-sm shadow-md shadow-pink-500/25">
+                        ⚡ RECENT ORDERS
                     </div>
                 </div>
 
                 {/* Recent Order List */}
-                <div className="bg-white border border-gray-100 rounded-[14px] shadow-sm mb-10 overflow-hidden">
-                    <div className="flex justify-between px-5 py-4 border-b border-gray-100 font-bold text-lg">
+                <div className="bg-white border border-pink-100 rounded-[16px] shadow-sm shadow-pink-500/5 mb-10 overflow-hidden">
+                    <div className="flex justify-between px-5 py-4 border-b border-pink-100 font-extrabold text-pink-950 text-base">
                         <span>Item</span>
                         <span>Time</span>
                     </div>
                     <div className="max-h-56 overflow-hidden relative p-1">
-                        <div className="animate-pulse absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10">
-                            {/* Visual effect for scroll list */}
-                        </div>
                         {Array.isArray(recentOrders) && recentOrders.map((order, index) => (
-                            <div key={order.id || index} className="flex justify-between items-center px-4 py-4 border-b border-gray-50 last:border-0 hover:bg-gray-50 transition-colors">
+                            <div key={order.id || index} className="flex justify-between items-center px-4 py-3.5 border-b border-pink-50 last:border-0 hover:bg-pink-50/50 transition-colors">
                                 <div>
-                                    <p className="text-gray-500 text-[13px] mb-1">{order.name}, <span className="text-pink-600 font-semibold text-[13px]">just purchase</span></p>
-                                    <p className="text-gray-600 text-[13px] font-bold uppercase">{order.item} <span className="text-black ml-1">{order.price}</span></p>
+                                    <p className="text-gray-500 text-[13px] mb-0.5">{order.name}, <span className="text-pink-600 font-bold text-[13px]">just purchased</span></p>
+                                    <p className="text-pink-950 text-[13px] font-extrabold uppercase">{order.item} <span className="text-rose-600 font-black ml-1">{order.price}</span></p>
                                 </div>
-                                <span className="text-gray-400 text-sm whitespace-nowrap pl-4">{order.time}</span>
+                                <span className="text-pink-400 text-xs font-bold whitespace-nowrap pl-4">{order.time}</span>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 {/* Explore Product Tag */}
-                <h2 className="text-xl font-extrabold text-[#1f2231] tracking-tight mb-4 border-l-4 border-yellow-400 pl-3">
-                    Explore Product 👈
+                <h2 className="text-xl font-black text-pink-950 tracking-tight mb-4 border-l-4 border-pink-600 pl-3">
+                    Explore Products 👈
                 </h2>
 
                 {/* Products Grouped */}
                 {loading ? (
-                    <div className="py-20 text-center text-gray-500">Loading products...</div>
+                    <div className="py-20 text-center text-pink-600 font-bold animate-pulse">Loading verified products...</div>
                 ) : (
                     <div className="space-y-8">
                         {Object.keys(groupedAccounts).map((groupName, idx) => (
                             <div key={idx}>
                                 {/* Group Header */}
-                                <div className="bg-[#3b427b] text-white rounded-[10px] px-4 py-3 font-semibold text-sm mb-4 uppercase tracking-wider shadow-sm">
-                                    {groupName} ACCOUNTS/TOOLS
+                                <div className="bg-gradient-to-r from-pink-800 via-rose-800 to-pink-900 text-white rounded-[12px] px-4 py-3.5 font-extrabold text-sm mb-4 uppercase tracking-wider shadow-md shadow-pink-900/15 flex items-center justify-between">
+                                    <span>{groupName} ACCOUNTS / TOOLS</span>
+                                    <span className="text-xs bg-white/20 text-white px-2 py-0.5 rounded-full font-bold">{groupedAccounts[groupName].length} items</span>
                                 </div>
                                 
                                 {/* Products */}
@@ -186,7 +184,7 @@ const Home = () => {
                                 {/* View All Button */}
                                 {groupedAccounts[groupName].length > 5 && (
                                     <div className="mt-4 mb-8">
-                                        <Link to="/shop" className="block w-full text-center bg-[#1b2331] hover:bg-black transition-colors text-white py-4 rounded-xl shadow-md font-black uppercase text-[13px] tracking-widest">
+                                        <Link to="/shop" className="block w-full text-center bg-gradient-to-r from-pink-600 via-rose-600 to-pink-700 hover:from-pink-700 hover:to-rose-700 transition-all text-white py-4 rounded-xl shadow-lg shadow-pink-500/25 font-black uppercase text-[13px] tracking-widest active:scale-98">
                                             View All {groupName}
                                         </Link>
                                     </div>
@@ -200,8 +198,8 @@ const Home = () => {
 
             {/* Floating Telegram Button */}
             <a href={settings?.telegramLink || "https://t.me/boostnaija1"} target="_blank" rel="noopener noreferrer" 
-                className="fixed bottom-36 left-6 md:left-auto md:right-32 bg-[#0088cc] hover:bg-[#0077b5] transition-colors p-4 rounded-2xl shadow-lg z-50 flex items-center justify-center border-2 border-blue-50">
-                <Send size={28} className="text-white -ml-1 mt-1" fill="currentColor" />
+                className="fixed bottom-24 right-5 md:right-10 bg-gradient-to-tr from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 transition-all p-4 rounded-full shadow-xl shadow-pink-500/40 z-50 flex items-center justify-center border-2 border-white transform hover:scale-110 active:scale-95">
+                <Send size={26} className="text-white -ml-0.5 mt-0.5" fill="currentColor" />
             </a>
             
         </div>

@@ -3,40 +3,40 @@
 @tailwind utilities;
 
 :root {
-    --primary: #06b6d4;
-    --primary-glow: rgba(6, 182, 212, 0.4);
+    --primary: #db2777;
+    --primary-glow: rgba(219, 39, 119, 0.4);
 }
 
 body {
     margin: 0;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background-color: #f8fafc; /* Very light gray */
-    color: #1e293b; /* Dark text */
+    background-color: #fdf2f8; /* Soft subtle pinkish white tint */
+    color: #1f2231;
     overflow-x: hidden;
 }
 @layer components {
     .glass {
-        @apply bg-white border border-gray-100 shadow-sm;
+        @apply bg-white border border-pink-100 shadow-sm;
     }
 
     .glass-card {
-        @apply bg-white border border-gray-100 rounded-3xl p-8 transition-colors hover:border-blue-500/30 hover:shadow-md;
+        @apply bg-white border border-pink-100 rounded-3xl p-8 transition-all hover:border-pink-300 hover:shadow-xl hover:shadow-pink-500/10;
     }
 
     .neon-text {
-        @apply text-blue-500 font-bold;
+        @apply text-pink-600 font-bold;
     }
 
     .btn-primary {
-        @apply bg-[#1b2331] hover:bg-black text-white font-bold py-4 px-8 rounded-xl transition-colors shadow-md flex justify-center items-center;
+        @apply bg-gradient-to-r from-pink-600 to-rose-600 hover:from-pink-700 hover:to-rose-700 text-white font-bold py-4 px-8 rounded-xl transition-all shadow-lg shadow-pink-500/25 flex justify-center items-center active:scale-95;
     }
 
     .btn-outline {
-        @apply border-2 border-gray-200 text-[#1f2231] hover:border-[#1b2331] font-bold py-4 px-8 rounded-xl transition-colors flex justify-center items-center;
+        @apply border-2 border-pink-200 text-pink-700 hover:bg-pink-50 font-bold py-4 px-8 rounded-xl transition-all flex justify-center items-center;
     }
 
     .input-field {
-        @apply bg-[#f8fafc] border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors text-gray-900 placeholder-gray-400 font-bold;
+        @apply bg-white border border-pink-100 rounded-xl px-4 py-3 focus:outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-200 transition-all text-gray-900 placeholder-gray-400 font-bold shadow-sm;
     }
 }
 
@@ -46,16 +46,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #0f172a;
+    background: #fdf2f8;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #06b6d4;
+    background: #db2777;
     border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #22d3ee;
+    background: #be185d;
 }
 
 .no-scrollbar::-webkit-scrollbar {
