@@ -28,13 +28,14 @@ const app = express();
 app.set('trust proxy', 1);
 
 const allowedOrigins = [
+    'https://lossales.onrender.com',
+    'https://lossales.vercel.app',
     'https://logssales.vercel.app',
     'https://logssales.onrender.com',
     'https://logssales.com',
     'https://www.logssales.com',
     'http://logssales.com',
     'http://www.logssales.com',
-    'https://biggestlogs.vercel.app',
     'http://localhost:5173',
     'http://localhost:5174',
     'http://localhost:3000'

@@ -13,7 +13,7 @@ export const ChatProvider = ({ children }) => {
     const [isTyping, setIsTyping] = useState(false);
     const socket = useRef();
     const activeChatRef = useRef(null);
-    const endpoint = import.meta.env.VITE_SOCKET_URL || 'https://logssales.onrender.com';
+    const endpoint = import.meta.env.VITE_SOCKET_URL || 'https://lossales.onrender.com';
 
 
     useEffect(() => {
