@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary: #06b6d4;
+    --primary-glow: rgba(6, 182, 212, 0.4);
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #f8fafc; /* Very light gray */
+    color: #1e293b; /* Dark text */
+    overflow-x: hidden;
+}
+@layer components {
+    .glass {
+        @apply bg-white border border-gray-100 shadow-sm;
+    }
+
+    .glass-card {
+        @apply bg-white border border-gray-100 rounded-3xl p-8 transition-colors hover:border-blue-500/30 hover:shadow-md;
+    }
+
+    .neon-text {
+        @apply text-blue-500 font-bold;
+    }
+
+    .btn-primary {
+        @apply bg-[#1b2331] hover:bg-black text-white font-bold py-4 px-8 rounded-xl transition-colors shadow-md flex justify-center items-center;
+    }
+
+    .btn-outline {
+        @apply border-2 border-gray-200 text-[#1f2231] hover:border-[#1b2331] font-bold py-4 px-8 rounded-xl transition-colors flex justify-center items-center;
+    }
+
+    .input-field {
+        @apply bg-[#f8fafc] border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-blue-500 transition-colors text-gray-900 placeholder-gray-400 font-bold;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #06b6d4;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #22d3ee;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
