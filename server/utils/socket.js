@@ -3,7 +3,7 @@ const socketIO = require('socket.io');
 const initSocket = (server) => {
     const io = socketIO(server, {
         cors: {
-            origin: process.env.NODE_ENV === 'production' ? ['https://logssales.vercel.app', 'https://www.logssales.com'] : '*',
+            origin: process.env.NODE_ENV === 'production' ? ['https://logsales.vercel.app', 'https://lossales.vercel.app', 'https://logssales.vercel.app', 'https://www.logssales.com'] : '*',
             methods: ['GET', 'POST'],
             credentials: true
         }

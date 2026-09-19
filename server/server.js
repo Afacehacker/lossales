@@ -28,6 +28,8 @@ const app = express();
 app.set('trust proxy', 1);
 
 const allowedOrigins = [
+    'https://logsales.vercel.app',
+    'http://logsales.vercel.app',
     'https://lossales.onrender.com',
     'https://lossales.vercel.app',
     'https://logssales.vercel.app',
