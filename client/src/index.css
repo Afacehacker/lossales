@@ -10,9 +10,15 @@
 body {
     margin: 0;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    background-color: #fdf2f8; /* Soft subtle pinkish white tint */
+    background-color: #fdf2f8;
     color: #1f2231;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+    background-color: #090d16;
+    color: #f8fafc;
 }
 @layer components {
     .glass {
