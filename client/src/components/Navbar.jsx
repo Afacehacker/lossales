@@ -3,7 +3,8 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { SettingsContext } from '../context/SettingsContext';
 import { useTheme } from '../context/ThemeContext';
-import { LogOut, LayoutDashboard, Download, Rocket, Send, Sun, Moon, ShoppingBag, Sparkles } from 'lucide-react';
+import LogoIcon from './LogoIcon';
+import { LogOut, LayoutDashboard, Download, Rocket, Send, Sun, Moon, ShoppingBag } from 'lucide-react';
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
@@ -22,22 +23,14 @@ const Navbar = () => {
             {/* Top Navbar */}
             <nav className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md sticky top-0 z-50 px-4 py-3 border-b border-pink-100 dark:border-slate-800 shadow-sm shadow-pink-500/5 flex items-center justify-between transition-colors duration-300">
                 <div className="flex items-center gap-2">
-                    {/* 2027 Rebranded Unique Logo */}
-                    <Link to="/" className="text-xl md:text-2xl font-black tracking-tight flex items-center gap-2 group">
-                        <div className="relative p-2 rounded-2xl bg-gradient-to-tr from-pink-600 via-rose-600 to-amber-400 text-white shadow-lg shadow-pink-500/30 group-hover:scale-105 group-hover:rotate-3 transition-all duration-300">
-                            <Rocket size={20} fill="currentColor" className="transform -rotate-12" />
-                            <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-300 rounded-full animate-ping" />
-                        </div>
+                    {/* 2027 Standard Cyber Logo */}
+                    <Link to="/" className="text-xl md:text-2xl font-black tracking-tight flex items-center gap-2.5 group">
+                        <LogoIcon className="w-9 h-9" />
                         <div className="flex flex-col leading-none">
-                            <div className="flex items-center gap-1">
-                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-900 via-pink-700 to-rose-600 dark:from-white dark:via-pink-200 dark:to-pink-400 font-black tracking-tighter text-lg md:text-xl">
-                                    LOGS<span className="text-pink-600 dark:text-pink-400">=SALES</span>
-                                </span>
-                                <span className="text-[9px] bg-gradient-to-r from-pink-600 to-rose-600 text-white font-black px-1.5 py-0.5 rounded-md uppercase tracking-widest shadow-xs">
-                                    2027
-                                </span>
-                            </div>
-                            <span className="text-[9px] font-black uppercase tracking-widest text-pink-500 dark:text-pink-400 hidden sm:block mt-0.5">
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-900 via-pink-700 to-rose-600 dark:from-white dark:via-pink-200 dark:to-pink-400 font-black tracking-tighter text-lg md:text-xl">
+                                LOGS<span className="text-pink-600 dark:text-pink-400">=SALES</span>
+                            </span>
+                            <span className="text-[9px] font-black uppercase tracking-widest text-pink-600 dark:text-pink-400 hidden sm:block mt-0.5">
                                 VERIFIED LOGS HUB
                             </span>
                         </div>
