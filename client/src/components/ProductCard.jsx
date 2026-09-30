@@ -1,4 +1,4 @@
-import { ShoppingBag, Eye, Zap } from 'lucide-react';
+import { ShoppingBag, Eye } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const ProductCard = ({ account, onPreview }) => {
@@ -13,62 +13,99 @@ const ProductCard = ({ account, onPreview }) => {
         }).format(val || 0).replace('NGN', '₦');
     };
 
-    // Pick an icon or logo based on platform
-    const getPlatformIcon = (platform = '') => {
-        const plat = platform.toLowerCase();
-        if (plat.includes('proxy')) {
+    // Render Product Picture / Platform Brand Image in exact w-12 h-12 rounded-2xl shape
+    const getProductPicture = () => {
+        // Priority 1: User uploaded account image or media picture
+        const mediaUrl = account.image || (account.media && account.media.length > 0 ? account.media[0] : null);
+        
+        if (mediaUrl) {
             return (
-                <div className="w-12 h-12 rounded-2xl bg-blue-600 flex items-center justify-center shadow-md text-white font-black text-xl">
-                    9
+                <div className="w-12 h-12 rounded-2xl bg-pink-100 dark:bg-slate-800 border border-pink-200 dark:border-slate-700 overflow-hidden shrink-0 shadow-sm">
+                    <img 
+                        src={mediaUrl} 
+                        alt={account.title || 'Product'} 
+                        className="w-full h-full object-cover" 
+                        onError={(e) => {
+                            // Fallback if image load fails
+                            e.target.onerror = null;
+                            e.target.src = 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=150&q=80';
+                        }}
+                    />
                 </div>
             );
         }
-        if (plat.includes('facebook')) {
-            return (
-                <div className="w-12 h-12 rounded-2xl bg-[#1877F2] flex items-center justify-center shadow-md text-white font-black text-xl">
-                    f
-                </div>
-            );
-        }
-        if (plat.includes('twitter') || plat.includes('x')) {
-            return (
-                <div className="w-12 h-12 rounded-2xl bg-black dark:bg-slate-800 border border-slate-700 flex items-center justify-center shadow-md text-white font-black text-xl">
-                    X
-                </div>
-            );
-        }
-        if (plat.includes('instagram')) {
-            return (
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-400 via-pink-500 to-purple-600 flex items-center justify-center shadow-md text-white font-black text-xl">
-                    Ig
-                </div>
-            );
-        }
-        if (plat.includes('telegram')) {
-            return (
-                <div className="w-12 h-12 rounded-2xl bg-[#0088cc] flex items-center justify-center shadow-md text-white font-black text-xl">
-                    Tg
-                </div>
-            );
-        }
-        if (plat.includes('google') || plat.includes('gmail') || plat.includes('youtube')) {
-            return (
-                <div className="w-12 h-12 rounded-2xl bg-rose-600 flex items-center justify-center shadow-md text-white font-black text-xl">
-                    G
-                </div>
-            );
-        }
+
+        // Priority 2: High-Quality Platform Brand Images in exact w-12 h-12 rounded-2xl container
+        const plat = (account.platform || '').toLowerCase();
+        
         if (plat.includes('tiktok')) {
             return (
-                <div className="w-12 h-12 rounded-2xl bg-black dark:bg-slate-800 border border-slate-700 flex items-center justify-center shadow-md text-white font-black text-xl">
-                    Tk
+                <div className="w-12 h-12 rounded-2xl bg-black overflow-hidden shrink-0 shadow-md border border-slate-700 flex items-center justify-center p-0.5">
+                    <img 
+                        src="https://images.unsplash.com/photo-1598128558393-70ff21433be0?auto=format&fit=crop&w=150&q=80" 
+                        alt="TikTok" 
+                        className="w-full h-full object-cover rounded-xl"
+                    />
                 </div>
             );
         }
-        // Default avatar/image
+
+        if (plat.includes('facebook')) {
+            return (
+                <div className="w-12 h-12 rounded-2xl bg-[#1877F2] overflow-hidden shrink-0 shadow-md flex items-center justify-center p-0.5">
+                    <img 
+                        src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=150&q=80" 
+                        alt="Facebook" 
+                        className="w-full h-full object-cover rounded-xl"
+                    />
+                </div>
+            );
+        }
+
+        if (plat.includes('instagram')) {
+            return (
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-amber-400 via-pink-500 to-purple-600 overflow-hidden shrink-0 shadow-md p-0.5">
+                    <img 
+                        src="https://images.unsplash.com/photo-1611262588024-d12430b98920?auto=format&fit=crop&w=150&q=80" 
+                        alt="Instagram" 
+                        className="w-full h-full object-cover rounded-xl"
+                    />
+                </div>
+            );
+        }
+
+        if (plat.includes('twitter') || plat.includes('x')) {
+            return (
+                <div className="w-12 h-12 rounded-2xl bg-black overflow-hidden shrink-0 shadow-md border border-slate-700 p-0.5">
+                    <img 
+                        src="https://images.unsplash.com/photo-1611605698335-8b1569810432?auto=format&fit=crop&w=150&q=80" 
+                        alt="Twitter X" 
+                        className="w-full h-full object-cover rounded-xl"
+                    />
+                </div>
+            );
+        }
+
+        if (plat.includes('telegram')) {
+            return (
+                <div className="w-12 h-12 rounded-2xl bg-[#0088cc] overflow-hidden shrink-0 shadow-md p-0.5">
+                    <img 
+                        src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=150&q=80" 
+                        alt="Telegram" 
+                        className="w-full h-full object-cover rounded-xl"
+                    />
+                </div>
+            );
+        }
+
+        // Default Product Image container
         return (
             <div className="w-12 h-12 rounded-2xl bg-pink-100 dark:bg-slate-800 flex items-center justify-center shadow-sm overflow-hidden border border-pink-200 dark:border-slate-700 shrink-0">
-                <img src={account.image || 'https://via.placeholder.com/150'} alt="Icon" className="w-full h-full object-cover" />
+                <img 
+                    src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=150&q=80" 
+                    alt="Digital Product" 
+                    className="w-full h-full object-cover" 
+                />
             </div>
         );
     };
@@ -77,12 +114,12 @@ const ProductCard = ({ account, onPreview }) => {
         <div 
             className="bg-white dark:bg-slate-900/90 rounded-[1.5rem] p-4 flex gap-4 items-center shadow-sm border border-pink-100 dark:border-slate-800 hover:border-pink-300 dark:hover:border-pink-500/40 hover:shadow-xl hover:shadow-pink-500/10 transition-all duration-300 w-full mb-3 group"
         >
-            {/* Left Icon */}
+            {/* Left Picture Icon Frame */}
             <div 
                 onClick={() => navigate(`/shop/${account._id}`)}
                 className="shrink-0 flex items-center justify-center transform group-hover:scale-105 transition-transform cursor-pointer"
             >
-                {getPlatformIcon(account.platform)}
+                {getProductPicture()}
             </div>
 
             {/* Middle Content */}

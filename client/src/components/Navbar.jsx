@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { SettingsContext } from '../context/SettingsContext';
 import { useTheme } from '../context/ThemeContext';
-import { LogOut, LayoutDashboard, Download, Rocket, Send, Sun, Moon, ShoppingBag } from 'lucide-react';
+import { LogOut, LayoutDashboard, Download, Rocket, Send, Sun, Moon, ShoppingBag, Sparkles } from 'lucide-react';
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
@@ -20,15 +20,27 @@ const Navbar = () => {
     return (
         <>
             {/* Top Navbar */}
-            <nav className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md sticky top-0 z-50 px-4 py-3 border-b border-pink-100 dark:border-slate-800 shadow-sm shadow-pink-500/5 flex items-center justify-between transition-colors duration-300">
+            <nav className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-md sticky top-0 z-50 px-4 py-3 border-b border-pink-100 dark:border-slate-800 shadow-sm shadow-pink-500/5 flex items-center justify-between transition-colors duration-300">
                 <div className="flex items-center gap-2">
-                    <Link to="/" className="text-2xl font-black tracking-tighter flex items-center gap-1.5 group">
-                        <div className="bg-gradient-to-tr from-pink-600 via-rose-600 to-pink-500 text-white p-1.5 rounded-xl shadow-md shadow-pink-500/30 group-hover:scale-105 transition-transform">
-                            <Rocket size={20} fill="currentColor" />
+                    {/* 2027 Rebranded Unique Logo */}
+                    <Link to="/" className="text-xl md:text-2xl font-black tracking-tight flex items-center gap-2 group">
+                        <div className="relative p-2 rounded-2xl bg-gradient-to-tr from-pink-600 via-rose-600 to-amber-400 text-white shadow-lg shadow-pink-500/30 group-hover:scale-105 group-hover:rotate-3 transition-all duration-300">
+                            <Rocket size={20} fill="currentColor" className="transform -rotate-12" />
+                            <div className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-amber-300 rounded-full animate-ping" />
                         </div>
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-800 via-rose-600 to-pink-600 dark:from-pink-400 dark:to-rose-400 font-extrabold">
-                            LOGS<span className="text-pink-600 dark:text-pink-400">=SALES</span>
-                        </span>
+                        <div className="flex flex-col leading-none">
+                            <div className="flex items-center gap-1">
+                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-900 via-pink-700 to-rose-600 dark:from-white dark:via-pink-200 dark:to-pink-400 font-black tracking-tighter text-lg md:text-xl">
+                                    LOGS<span className="text-pink-600 dark:text-pink-400">=SALES</span>
+                                </span>
+                                <span className="text-[9px] bg-gradient-to-r from-pink-600 to-rose-600 text-white font-black px-1.5 py-0.5 rounded-md uppercase tracking-widest shadow-xs">
+                                    2027
+                                </span>
+                            </div>
+                            <span className="text-[9px] font-black uppercase tracking-widest text-pink-500 dark:text-pink-400 hidden sm:block mt-0.5">
+                                VERIFIED LOGS HUB
+                            </span>
+                        </div>
                     </Link>
                 </div>
 
@@ -37,13 +49,13 @@ const Navbar = () => {
                     <button
                         onClick={toggleTheme}
                         aria-label="Toggle Light/Dark Theme"
-                        className="p-2 rounded-full bg-pink-50 dark:bg-slate-800 text-pink-700 dark:text-pink-300 border border-pink-200 dark:border-slate-700 hover:scale-110 active:scale-95 transition-all shadow-xs"
+                        className="p-2 rounded-2xl bg-pink-50 dark:bg-slate-800 text-pink-700 dark:text-pink-300 border border-pink-200 dark:border-slate-700 hover:scale-110 active:scale-95 transition-all shadow-xs"
                     >
                         {isDarkMode ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-pink-600" />}
                     </button>
 
                     {(user?.isAdmin || user?.name?.toLowerCase().includes('admin')) && (
-                        <Link to="/admin" className="flex items-center gap-1 text-[10px] md:text-xs font-extrabold text-pink-600 dark:text-pink-400 hover:text-pink-800 bg-pink-50 dark:bg-pink-950/60 px-2.5 py-1 rounded-full border border-pink-200 dark:border-pink-800 transition-colors">
+                        <Link to="/admin" className="flex items-center gap-1 text-[10px] md:text-xs font-black text-pink-600 dark:text-pink-400 hover:text-pink-800 bg-pink-50 dark:bg-pink-950/60 px-2.5 py-1 rounded-full border border-pink-200 dark:border-pink-800 transition-colors">
                             <Rocket size={14} /> <span className="hidden sm:inline">ADMIN</span>
                         </Link>
                     )}
@@ -51,16 +63,16 @@ const Navbar = () => {
                     {/* Wallet Balance Widget */}
                     <Link to="/wallet" className="flex items-center gap-2 bg-pink-50/80 dark:bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-pink-200 dark:border-slate-700 hover:bg-pink-100 dark:hover:bg-slate-700 transition-colors shadow-sm">
                         <div className="text-white bg-gradient-to-r from-pink-600 to-rose-600 p-1 rounded-full shadow-xs"><Send size={11} className="rotate-45" /></div>
-                        <span className="font-extrabold text-pink-950 dark:text-pink-200 tracking-tight text-sm">₦{(user?.balance || 0).toLocaleString()}</span>
+                        <span className="font-extrabold text-pink-950 dark:text-pink-200 tracking-tight text-xs md:text-sm">₦{(user?.balance || 0).toLocaleString()}</span>
                     </Link>
                 </div>
             </nav>
 
             {/* Desktop Navigation Links */}
-            <div className="hidden md:flex bg-white/80 dark:bg-slate-900/80 border-b border-gray-100 dark:border-slate-800 py-3 px-6 justify-center items-center gap-8 transition-colors duration-300">
-               <Link to="/" className={`font-semibold text-sm transition-colors ${location.pathname === '/' ? 'text-pink-600 dark:text-pink-400 font-extrabold' : 'text-gray-600 dark:text-gray-300 hover:text-pink-600'}`}>Home</Link>
-               <Link to="/shop" className={`font-semibold text-sm transition-colors ${location.pathname === '/shop' ? 'text-pink-600 dark:text-pink-400 font-extrabold' : 'text-gray-600 dark:text-gray-300 hover:text-pink-600'}`}>Marketplace</Link>
-               <Link to="/dashboard" className={`font-semibold text-sm transition-colors ${location.pathname === '/dashboard' ? 'text-pink-600 dark:text-pink-400 font-extrabold' : 'text-gray-600 dark:text-gray-300 hover:text-pink-600'}`}>My Orders</Link>
+            <div className="hidden md:flex bg-white/80 dark:bg-slate-900/80 border-b border-pink-100 dark:border-slate-800 py-3 px-6 justify-center items-center gap-8 transition-colors duration-300">
+               <Link to="/" className={`font-semibold text-sm transition-colors ${location.pathname === '/' ? 'text-pink-600 dark:text-pink-400 font-black' : 'text-gray-600 dark:text-gray-300 hover:text-pink-600'}`}>Home</Link>
+               <Link to="/shop" className={`font-semibold text-sm transition-colors ${location.pathname === '/shop' ? 'text-pink-600 dark:text-pink-400 font-black' : 'text-gray-600 dark:text-gray-300 hover:text-pink-600'}`}>Marketplace</Link>
+               <Link to="/dashboard" className={`font-semibold text-sm transition-colors ${location.pathname === '/dashboard' ? 'text-pink-600 dark:text-pink-400 font-black' : 'text-gray-600 dark:text-gray-300 hover:text-pink-600'}`}>My Orders</Link>
                <a href={settings?.telegramLink || "https://t.me/boostnaija1"} target="_blank" rel="noopener noreferrer" className="font-semibold text-sm text-gray-600 dark:text-gray-300 hover:text-pink-600">Telegram Support</a>
                {user ? (
                    <button onClick={handleLogout} className="font-semibold text-sm text-rose-500 hover:text-rose-700 flex items-center gap-1">

@@ -9,16 +9,23 @@ const Footer = () => {
         <footer className="bg-white dark:bg-slate-900 border-t border-pink-100 dark:border-slate-800 pt-16 pb-28 md:pb-12 px-6 transition-colors duration-300">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-16 mb-12 text-center md:text-left">
                 <div className="col-span-1 md:col-span-2">
-                    <Link to="/" className="text-2xl md:text-3xl font-black mb-4 flex items-center gap-1.5 justify-center md:justify-start group">
-                        <div className="bg-gradient-to-tr from-pink-600 via-rose-600 to-pink-500 text-white p-2 rounded-xl shadow-md shadow-pink-500/30">
-                            <Rocket size={22} fill="currentColor" />
+                    <Link to="/" className="text-2xl md:text-3xl font-black mb-4 flex items-center gap-2 justify-center md:justify-start group">
+                        <div className="p-2 rounded-2xl bg-gradient-to-tr from-pink-600 via-rose-600 to-amber-400 text-white shadow-lg shadow-pink-500/30 group-hover:scale-105 transition-transform">
+                            <Rocket size={22} fill="currentColor" className="transform -rotate-12" />
                         </div>
-                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-800 to-rose-600 dark:from-pink-400 dark:to-rose-400 font-extrabold">
-                            LOGS<span className="text-pink-600 dark:text-pink-400">=SALES</span>
-                        </span>
+                        <div className="flex flex-col leading-none">
+                            <div className="flex items-center gap-1">
+                                <span className="bg-clip-text text-transparent bg-gradient-to-r from-pink-900 via-pink-700 to-rose-600 dark:from-white dark:via-pink-200 dark:to-pink-400 font-black tracking-tighter text-xl md:text-2xl">
+                                    LOGS<span className="text-pink-600 dark:text-pink-400">=SALES</span>
+                                </span>
+                                <span className="text-[9px] bg-gradient-to-r from-pink-600 to-rose-600 text-white font-black px-1.5 py-0.5 rounded-md uppercase tracking-widest">
+                                    2027
+                                </span>
+                            </div>
+                        </div>
                     </Link>
                     <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-sm md:text-base max-w-sm font-medium mx-auto md:mx-0">
-                        The world's premier marketplace for verified social media accounts, advertising logs, and digital tools. Instant automated delivery guaranteed.
+                        The world's premier marketplace for verified social media accounts, advertising logs, and digital tools. 1-Minute automated delivery guaranteed.
                     </p>
                 </div>
 
@@ -42,7 +49,7 @@ const Footer = () => {
             </div>
 
             <div className="max-w-7xl mx-auto border-t border-gray-100 dark:border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-400 dark:text-gray-500 text-xs font-bold">
-                <p>© 2026 LOGS=SALES®. All rights reserved.</p>
+                <p>© 2027 LOGS=SALES®. All rights reserved.</p>
 
                 <div className="flex items-center gap-4">
                     <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1.5 rounded-full border border-emerald-200 dark:border-emerald-800">

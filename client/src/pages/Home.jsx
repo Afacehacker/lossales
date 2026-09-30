@@ -183,7 +183,7 @@ const Home = () => {
                             <span className="text-[11px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">Success Rate</span>
                         </div>
                         <div className="p-3 bg-white/70 dark:bg-slate-900/60 rounded-xl border border-pink-100 dark:border-slate-800">
-                            <span className="block font-black text-xl md:text-2xl text-pink-600 dark:text-pink-400">⚡ 2 Mins</span>
+                            <span className="block font-black text-xl md:text-2xl text-pink-600 dark:text-pink-400">⚡ 1 Min</span>
                             <span className="text-[11px] md:text-xs font-bold text-gray-500 dark:text-gray-400 uppercase">Instant Auto-Delivery</span>
                         </div>
                         <div className="p-3 bg-white/70 dark:bg-slate-900/60 rounded-xl border border-pink-100 dark:border-slate-800">

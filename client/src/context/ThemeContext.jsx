@@ -3,16 +3,16 @@ import { createContext, useState, useEffect, useContext } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-    const [isDarkMode, setIsDarkMode] = useState(true);
+    // Default to false (Light Mode / White Mode)
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
     useEffect(() => {
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme) {
             setIsDarkMode(savedTheme === 'dark');
         } else {
-            // Check system preference if no saved theme
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            setIsDarkMode(systemPrefersDark);
+            // Force default to light mode on first visit
+            setIsDarkMode(false);
         }
     }, []);
 
