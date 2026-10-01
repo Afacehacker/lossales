@@ -116,13 +116,13 @@ const Wallet = () => {
                             
                             <div className="pt-2.5 border-t border-rose-200 dark:border-rose-900/60">
                                 <div className="inline-flex items-center gap-1.5 bg-rose-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md mb-1.5 shadow-xs">
-                                    <span>🚫</span> NO OPAY / OPAY PUSH
+                                    <span>🚫</span> NO OPAY PAYMENTS
                                 </div>
                                 <p className="text-xs leading-relaxed text-rose-950 dark:text-rose-100 font-black">
-                                    DO NOT send payment using OPay or OPay Push!
+                                    DO NOT send payment using OPay!
                                 </p>
                                 <p className="text-[11px] leading-relaxed text-rose-800 dark:text-rose-300 font-medium mt-0.5">
-                                    Payments sent via <span className="font-extrabold underline">OPay</span> or <span className="font-extrabold underline">OPay Push</span> are NOT accepted and will NOT be credited to your wallet. Please use standard bank transfers from other commercial banks.
+                                    Payments sent via <span className="font-extrabold underline">OPay</span> are NOT accepted and will NOT be credited to your wallet. Please use standard bank transfers from other banks (e.g., Kuda, Palmpay, GTBank, Zenith, Access, etc.).
                                 </p>
                             </div>
                         </div>
