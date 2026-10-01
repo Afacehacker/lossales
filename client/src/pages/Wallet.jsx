@@ -3,7 +3,7 @@ import { AuthContext } from '../context/AuthContext';
 import { SettingsContext } from '../context/SettingsContext';
 import API from '../services/api';
 import { toast } from 'react-hot-toast';
-import { Copy, PlusCircle, CheckCircle, ShieldCheck } from 'lucide-react';
+import { Copy, PlusCircle, CheckCircle, ShieldCheck, AlertTriangle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const Wallet = () => {
@@ -104,12 +104,27 @@ const Wallet = () => {
                             <h3 className="font-black text-pink-950 dark:text-white uppercase tracking-tight text-base">Deposit Guidelines</h3>
                         </div>
 
-                        {/* Notice Box */}
-                        <div className="bg-rose-50 dark:bg-rose-950/40 border-l-4 border-rose-500 rounded-r-xl p-4 mb-5">
-                            <h4 className="text-xs font-black text-rose-700 dark:text-rose-300 uppercase mb-1">⚠️ Important notice:</h4>
+                        {/* Notice & Warning Box */}
+                        <div className="bg-rose-50 dark:bg-rose-950/40 border-l-4 border-rose-500 rounded-r-xl p-4 mb-5 space-y-2.5">
+                            <div className="flex items-center gap-2 text-rose-700 dark:text-rose-300">
+                                <AlertTriangle size={18} className="shrink-0 animate-pulse" />
+                                <h4 className="text-xs font-black uppercase tracking-tight">Important Deposit Notice</h4>
+                            </div>
                             <p className="text-xs leading-relaxed text-rose-900 dark:text-rose-200 font-semibold">
                                 Transfer to the official bank account below and upload your receipt for instant wallet crediting.
                             </p>
+                            
+                            <div className="pt-2.5 border-t border-rose-200 dark:border-rose-900/60">
+                                <div className="inline-flex items-center gap-1.5 bg-rose-600 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-md mb-1.5 shadow-xs">
+                                    <span>🚫</span> NO OPAY / OPAY PUSH
+                                </div>
+                                <p className="text-xs leading-relaxed text-rose-950 dark:text-rose-100 font-black">
+                                    DO NOT send payment using OPay or OPay Push!
+                                </p>
+                                <p className="text-[11px] leading-relaxed text-rose-800 dark:text-rose-300 font-medium mt-0.5">
+                                    Payments sent via <span className="font-extrabold underline">OPay</span> or <span className="font-extrabold underline">OPay Push</span> are NOT accepted and will NOT be credited to your wallet. Please use standard bank transfers from other commercial banks.
+                                </p>
+                            </div>
                         </div>
 
                         {/* Bank Box */}
